@@ -89,6 +89,10 @@ export default function ProductList() {
           />
         }
       />
+      {loadingProducts
+        ? <Text style={{color: '#FFF', marginTop: 16}}>Carregando mais produtos...</Text>
+        : null
+      }
     </View>
   );
 }

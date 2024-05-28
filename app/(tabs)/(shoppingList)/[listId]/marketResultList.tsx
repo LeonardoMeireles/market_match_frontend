@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 import { View } from '@/components/Themed';
 import { useMarketMatch } from '@/services/marketMatchContext';
 import NoShoppingList from '@/components/shoppingList/NoShoppingList';
@@ -67,18 +67,13 @@ export default function MarketResultList() {
       <ScrollView
         style={{width: '100%', marginTop: 32}}
         contentContainerStyle={styles.childrenContainer}
-        horizontal
-        pagingEnabled
-        nestedScrollEnabled
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
       >
-        {marketResult?.map((marketResult, index) => (
+        {marketResult?.map((result) =>
           <MarketCard
-            {...marketResult}
-            key={index}
+            {...result}
+            key={result.id}
           />
-        ))}
+        )}
       </ScrollView>
     </View>
   );
@@ -113,7 +108,9 @@ const styles = StyleSheet.create({
     color: '#FFF',
   },
   childrenContainer: {
+    marginTop: 16,
     width: '100%',
+    gap: 12,
   },
   title: {
     marginTop: 16,

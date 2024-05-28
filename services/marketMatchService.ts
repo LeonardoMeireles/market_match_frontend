@@ -103,7 +103,7 @@ export const useMarketMatchService = () => {
         distanceFilter
       }
     ).then((res) => {
-      return (res.data);
+      return (res.data.sort((a, b) => a.total_price - b.total_price));
     }).catch((e) => console.log(e));
   }
 

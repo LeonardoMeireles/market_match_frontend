@@ -27,13 +27,13 @@ export default function MarketCard(
 
   return (
     <TouchableOpacity
-      onPressIn={() => {
+      onPress={() => {
         Linking.openURL(url as string);
       }}
       style={styles.container}
     >
       <View style={styles.marketInfoContainer}>
-        <Text style={styles.name}>{name}</Text>
+        <Text numberOfLines={1} style={styles.name}>{name}</Text>
         <Text style={styles.distance}>Distância: {treatDistance()}</Text>
       </View>
       <View style={styles.distanceContainer}>
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
     backgroundColor: '#383838',
+    width: '70%'
   },
   distanceContainer: {
     display: 'flex',
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#383838',
   },
   totalValue: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 600
   },
   totalText: {
